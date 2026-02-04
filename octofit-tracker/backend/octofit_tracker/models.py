@@ -3,9 +3,11 @@ from djongo import models
 
 class User(models.Model):
     _id = models.ObjectIdField(primary_key=True)
-    username = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
+    team_id = models.CharField(max_length=24, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
